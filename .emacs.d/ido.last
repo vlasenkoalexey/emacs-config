@@ -1,0 +1,32 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/usr/local/google/home/alekseyv/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/usr/local/google/home/alekseyv/.emacs.d/"
+ "/usr/local/google/home/alekseyv/Desktop/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+ "emacs"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/usr/local/google/home/alekseyv/.emacs.d/" (21466 3000 449112 799000) "ergoemacs-mode/" "ac-comphist.dat" "sr-speedbar.el" "ergoemacs-extras/" "elpa/" "linum+.el" "url/" "auto-save-list/" "../" "color-theme/" "ido.last" "init.el" "auto-complete/" "./")
+
+ ("/usr/local/google/home/alekseyv/Desktop/" (21466 1727 348282 183000) "commands" "Compare~" "4/" ".#emacs" "RASTA_notes" "emacs" "commands~" "emacs~" "CommandLine~" "../" "1/" "3/" "Pizza.odt" "Untitled Document 1" "MendelGenerated/" "Direct Debit form - Set up a Direct Debit - Thames Water1.pdf" "GWSLogEntryProto.java" "CommandLine" "Direct Debit form - Set up a Direct Debit - Thames Water.pdf" "experiments~" "Compare" "experiments" "Untitled Folder/" "2/" "./")
+
+ ("/google/" (21360 34005 560713 548000) "obj/" "./" "../" "data/" "code/" "src/")
+
+ ("/usr/local/google/home/alekseyv/" (21464 54717 470126 552000) ".gnome-color-chooser/" "hs_err_pid11752.log" ".gmc-sync-nssdb.log" ".xsession-errors.old" ".ipython/" ".java/" ".viminfo" "clickouts.ods" ".gnome2/" ".eclipse/" ".profile" ".nvidia-settings-rc" "hs_err_pid13830.log" ".dremel_history" ".pam_environment" "Public/" ".xsession-errors" ".gtkrc-2.0-gnome-color-chooser" ".dmrc" ".pulse-cookie" ".bash_history" ".gnome2OLD/" "ergoemacs/" "hs_err_pid24877.log" ".mozilla/" "emacs/" "hs_err_pid19258.log" ".gnomeOLD/" ".bash_logout" "Music/" "examples.desktop" ".local/" ".bashrc" ".gtkrc-2.0" "Documents/" ".dbus/" ".gphoto/" ".selected_editor" "Pictures/" ".mission-control/" "../" ".thunderbird/" "hs_err_pid5051.log" ".bash_aliases~" "clickouts.csv" ".config/" ".gtk-bookmarks" ".ssh/" ".cinnamon/" "JavaDecompiler/" ".themes/" ".bash_aliases" "Videos/" ".mendel-history" "Desktop/" ".cache/" "Downloads/" ".mcoprc" ".gstreamer-0.10/" ".Skype/" "workspace/" "hs_err_pid757.log" ".emacs.d/" ".goutputstream-4RYRGX" ".Xauthority" ".compiz-1/" ".gconfOLD/" "snipit/" ".googlekeys/" ".goutputstream-JJ99FX" ".thumbnails/" ".nv/" ".gvfs/" ".mendel_error_log" ".gnome/" ".gnome2_private/" ".pki/" ".bashrc~" "tmp/" "Templates/" ".ICEauthority" ".gconf/" ".kde/" ".pulse/" "hs_err_pid28935.log" ".news_time" "./" ".gksu.lock" ".dremel_completion_cache")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
