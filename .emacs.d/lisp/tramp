@@ -1,0 +1,6 @@
+;; -*- emacs-lisp -*- <14/08/12 13:34:28 /usr/local/google/home/alekseyv/.emacs.d/tramp>
+;; Tramp connection history.  Don't change this file.
+;; You can delete it, forcing Tramp to reapply the checks.
+
+((["scp" nil "RuleConfiguredTargetBuilder.java" nil nil]
+  nil))

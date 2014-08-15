@@ -1,0 +1,60 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/usr/local/google/home/" . "alekseyv/")
+ ("/" . "google/")
+ ("/usr/local/google/home/alekseyv/" . "Desktop/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/usr/local/google/home/alekseyv/.emacs.d/"
+ "/usr/local/google/home/alekseyv/Desktop/"
+ "/google/src/cloud/alekseyv/adscompare_clean/google3/java/com/google/ads/compare/insurance/frontend/server/servlet/"
+ "/google/src/cloud/alekseyv/adscompare/google3/ads/rasta/production/rqe/metric_config/"
+ "ads/rasta/production/rqe/metric_config/"
+ "/usr/share/applications/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+ "emacs"
+ "AddressSearchService.java"
+ "search_and_ads_metric_system_definitions"
+ "search_ads_metric_definitions"
+ "emacs24.desktop"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/usr/local/google/home/alekseyv/.emacs.d/" (21486 9985 520169 144000) "ac-comphist.dat" "elpa/" "auto-save-list/" "../" "lisp/" "ido.last" "init.el" "./")
+
+ ("/google/src/cloud/alekseyv/adscompare_clean/google3/logs/sessions/event/" (0 0 0 0) "visual_element_test.cc" "visual_element.h" "visual_element.cc" "testdata/" "test_interactions_test.cc" "property_field_whitelist.h" "property_assigner_test.cc" "property_assigner.h" "property_assigner.cc" "make_interaction_config_test.py" "make_interaction_config.py" "interface_assigner_test.cc" "interface_assigner.h" "interface_assigner.cc" "interaction_utils_test.cc" "interaction_utils.h" "interaction_matcher_test.cc" "interaction_matcher.h" "interaction_matcher.cc" "interaction_data.h" "interaction_data.cc" "interaction_assigner_test.cc" "interaction_assigner.h" "interaction_assigner.cc" "get_action_property_test.cc" "event_wrapper.h" "event_wrapper.cc" "event_utils_test.cc" "event_utils.h" "event_utils.cc" "event_field_assigner_test.cc" "event_field_assigner.h" "event_field_assigner.cc" "duplicate_detector_test.cc" "duplicate_detector_functional_search_test.cc" "duplicate_detector_functional_search.h" "duplicate_detector_functional_search.cc" "duplicate_detector_exact_test.cc" "duplicate_detector_exact.h" "duplicate_detector_exact.cc" "duplicate_detector.h" "duplicate_detector.cc" "OWNERS" "METADATA" "BUILD" "../" "./")
+
+ ("/usr/local/google/home/alekseyv/Desktop/" (21486 9082 357355 70000) "commands" "Compare~" "affiliates_codex" "4/" "insurance_codex0813.txt" "Build.log" "traffic_project2" "SessionErrorUrls2.txt" "RASTA_notes" "emacs" "commands~" "rasta_request" "AlekseyVSessionSeeker2.html" "emacs~" "CommandLine~" "affiliates_codex2" "../" "logattribs.txt" "SessionErrorUrls2.ods" "check Zwieback for affiliates~" "1/" "3/" "check Zwieback for affiliates" "Pizza.odt" "Untitled Document 1" "MendelGenerated/" "Direct Debit form - Set up a Direct Debit - Thames Water1.pdf" "GWSLogEntryProto.java" "CommandLine" "affiliates_codex1" "Direct Debit form - Set up a Direct Debit - Thames Water.pdf" "experiments~" "affiliatesRun" "Compare" "AlekseyVSessionSeeker2_files/" "experiments" "Untitled Folder/" "2/" "Your National Express e-Ticket.pdf" "./")
+
+ ("/usr/local/google/home/alekseyv/" (21486 1160 543485 587000) ".gnome-color-chooser/" "hs_err_pid11752.log" ".gmc-sync-nssdb.log" ".xsession-errors.old" ".ipython/" ".java/" ".viminfo" ".emacs.d.back2/" ".startgwsrc" "clickouts.ods" ".gnome2/" ".gitconfig" ".eclipse/" ".profile" ".nvidia-settings-rc" "hs_err_pid13830.log" ".dremel_history" ".pam_environment" "Public/" ".xsession-errors" ".gtkrc-2.0-gnome-color-chooser" ".dmrc" ".pulse-cookie" ".bash_history" ".gnome2OLD/" "ergoemacs/" "traffic_project" "hs_err_pid24877.log" ".mozilla/" "emacs/" "hs_err_pid19258.log" ".emacs.d.back/" ".gqui/" ".gnomeOLD/" ".bash_logout" "Music/" "examples.desktop" ".local/" ".bashrc" ".gtkrc-2.0" "Documents/" ".dbus/" ".gphoto/" ".selected_editor" "Pictures/" ".mission-control/" "../" ".thunderbird/" "hs_err_pid5051.log" ".bash_aliases~" "clickouts.csv" ".config/" ".gtk-bookmarks" ".ssh/" ".cinnamon/" "JavaDecompiler/" ".themes/" ".bash_aliases" "Videos/" ".mendel-history" "Desktop/" ".cache/" "Downloads/" ".mcoprc" ".gstreamer-0.10/" ".goutputstream-JYWOKX" ".Skype/" "workspace/" "hs_err_pid757.log" "hs_err_pid28701.log" ".emacs.d/" ".goutputstream-4RYRGX" ".Xauthority" ".compiz-1/" ".gconfOLD/" "snipit/" ".googlekeys/" ".goutputstream-JJ99FX" ".thumbnails/" ".nv/" ".gvfs/" ".mendel_error_log" ".gnome/" ".gnome2_private/" ".pki/" ".bashrc~" "tmp/" "Templates/" ".ICEauthority" ".gconf/" ".kde/" ".pulse/" "hs_err_pid28935.log" ".news_time" "./" ".gksu.lock" ".dremel_completion_cache")
+
+ ("/usr/share/applications/" (21484 6585 508541 748000) "libreoffice-calc.desktop" "icedtea-netx-javaws.desktop" "gwibber-preferences.desktop" "nm-applet.desktop" "gnome-system-log.desktop" "defaults.list" "nautilus.desktop" "hplj1020.desktop" "ubuntu-software-center.desktop" "ibus.desktop" "freecell.desktop" "libreoffice-draw.desktop" "indicator-datetime-preferences.desktop" "gnome-power-statistics.desktop" "nxclient-admin.desktop" "gnome-panel.desktop" "mount-archive.desktop" "gucharmap.desktop" "bluetooth-properties.desktop" "mahjongg.desktop" "checkbox-qt.desktop" "cinnamon-add-panel-launcher.desktop" "nvidia-settings.desktop" "openjdk-6-java.desktop" "mc.desktop" "gedit.desktop" "emacs23.desktop" "totem.desktop" "screensavers/" "gcr-viewer.desktop" "libreoffice-xsltfilter.desktop" "caribou.desktop" "parcellite.desktop" "orca.desktop" "cinnamon-settings.desktop" "sol.desktop" "goobuntu-indicator.desktop" "gnome-sound-nua-panel.desktop" "apturl.desktop" "system-config-printer.desktop" "cinnamon.desktop" "simple-scan.desktop" "openjdk-6-policytool.desktop" "synergy.desktop" "gnome-sound-recorder.desktop" "gnome-color-chooser.desktop" "system-config-lvm.desktop" "file-roller.desktop" "emacs24.desktop" "gnome-sound-panel.desktop" "gnome-wacom-panel.desktop" "gnome-datetime-panel.desktop" "language-selector.desktop" "activity-log-manager-ccpanel.desktop" "google-chrome-beta.desktop" "eclipse44_testing.desktop" "evince.desktop" "gnome-user-accounts-panel.desktop" "gnome-keyring-prompt.desktop" "bluetooth-wizard.desktop" "gnome-system-monitor.desktop" "gnome-keyboard-panel.desktop" "libreoffice-writer.desktop" "metacity.desktop" "eclipse44.desktop" "gnome-user-share-properties.desktop" "eog.desktop" "gnome-color-panel.desktop" "empathy-accounts.desktop" "gnome-control-center.desktop" "gwibber.desktop" "baobab.desktop" "gvim.desktop" "goobuntu-config-wizard.desktop" "cinnamon-menu-editor.desktop" "palimpsest.desktop" "vino-preferences.desktop" "gnome-info-panel.desktop" "nm-connection-editor.desktop" "session-properties.desktop" "software-properties-gtk.desktop" "gwibber-accounts.desktop" "rhythmbox-device.desktop" "gksu.desktop" "gnome-screenshot.desktop" "gconf-editor.desktop" "gparted.desktop" "brasero-nautilus.desktop" "alacarte.desktop" "nautilus-folder-handler.desktop" "libreoffice-math.desktop" "bluetooth-sendto.desktop" "firefox.desktop" "remmina.desktop" "shotwell.desktop" "cinnamon2d.desktop" "libreoffice-startcenter.desktop" "unity-2d-shell.desktop" "unity-2d-panel.desktop" "nxclient.desktop" "nautilus-home.desktop" "eclipse43.desktop" "ddd.desktop" "gnome-screen-panel.desktop" "nautilus-autorun-software.desktop" "thunderbird.desktop" "gnome-sudoku.desktop" "empathy.desktop" "shotwell-viewer.desktop" "ccsm.desktop" "seahorse.desktop" "gnome-background-panel.desktop" "onboard.desktop" "gnome-network-panel.desktop" "gnome-wm.desktop" "emacs24.desktop~" "ibus-setup.desktop" "gnome-printers-panel.desktop" "brasero.desktop" "im-switch.desktop" "gnome-display-panel.desktop" "meld.desktop" "nxclient-help.desktop" "apport-gtk-mime.desktop" "python2.7.desktop" "gcalctool.desktop" "gnome-universal-access-panel.desktop" "usb-creator-gtk.desktop" "onboard-settings.desktop" "eclipse43_testing.desktop" "clipit.desktop" "bamf.index" "dconf-editor.desktop" "skype.desktop" "gnomine.desktop" "gv.desktop" "goobuntu-screen-panel.desktop" "yelp.desktop" "gnome-mouse-panel.desktop" "kde4/" "debian-xterm.desktop" "gnome-region-panel.desktop" "transmission-gtk.desktop" "gnome-terminal.desktop" "update-manager.desktop" "python3.2.desktop" "mimeinfo.cache" "rhythmbox.desktop" "gnome-online-accounts-panel.desktop" "gnome-power-panel.desktop" "gstreamer-properties.desktop" "google-chrome.desktop" "gnome-font-viewer.desktop" "debian-uxterm.desktop" "compiz.desktop" "itweb-settings.desktop" "xdiagnose.desktop" "libreoffice-impress.desktop" "gkbd-keyboard-display.desktop" "nxclient-wizard.desktop" "gnome-nettool.desktop" "../" "./")
+
+ ("/usr/" (21360 33981 146953 26000) "games/" "bin/" "share/" "crosstool/" "local/" "sbin/" "lib/" "./" "../" "grte/" "include/" "buildtools/" "lib32/" "NX/" "src/")
+
+ ("/usr/local/" (21360 33797 445811 710000) "games/" "google/" "bin/" "etc/" "share/" "sbin/" "symlinks/" "lib/" "./" "man/" "../" "include/" "buildtools/" "src/" "old_symlinks/")
+
+ ("/usr/local/google/" (21409 43197 18824 532000) "x20/" "logmanagerd/" "objfs/" "../" "home/" "goobuntu-backups/" "users/" "_blaze_alekseyv/" "tmp/" "rabbit_alekseyv/" "lost+found/" "./")
+
+ ("/usr/local/google/home/" (21360 34970 201231 970000) "alekseyv/" "../" "./")
+
+ ("/usr/local/google/home/alekseyv/Documents/" (21466 38291 864434 493000) "../" "Projects/" "./")
+
+ ("/usr/local/google/home/alekseyv/Documents/Projects/" (21466 38630 233982 379000) "../" "emacs-config/" "./")
+
+ ("/usr/local/google/home/alekseyv/Documents/Projects/emacs-config/" (21466 38656 478412 659000) "../" ".emacs.d/" "README.md" ".git/" "./")
+
+ ("/google/" (21360 34005 560713 548000) "obj/" "./" "../" "data/" "code/" "src/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
