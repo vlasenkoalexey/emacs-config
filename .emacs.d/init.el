@@ -1,4 +1,6 @@
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
+(add-to-list 'load-path "~/.emacs.d/cc-mode")
 
 (setq make-backup-files         nil) ; Don't want any backup files
 (setq auto-save-list-file-name  nil) ; Don't want any .saves files
@@ -24,6 +26,8 @@
 
 ;(setq tab-always-indent 'complte)
 ;(add-to-list 'completion-styles 'initials t)
+
+;;(require 'misc)
 
 (defun my-keybindings (my-key-map)
   ;; Bushenko
@@ -81,8 +85,12 @@
 (define-key my-key-map (kbd "M-k") 'next-line)
 
 ;; Move by word
-(define-key my-key-map (kbd "M-u") 'backward-word)
-(define-key my-key-map (kbd "M-o") 'forward-word)
+;;(define-key my-key-map (kbd "M-u") 'backward-word)
+;;(define-key my-key-map (kbd "M-o") 'forward-word)
+(define-key my-key-map (kbd "M-u") (lambda () (interactive)
+                              (forward-same-syntax -1)))
+(define-key my-key-map (kbd "M-o") 'forward-same-syntax)
+
 
 ;; Move by paragraph
 ;;(define-key my-key-map (kbd "M-U") 'backward-paragraph)
@@ -118,7 +126,7 @@
 (define-key my-key-map (kbd "C-o") 'find-file)
 (define-key my-key-map (kbd "C-S-o") 'open-in-desktop)
 (define-key my-key-map (kbd "C-S-t") 'open-last-closed)
-(define-key my-key-map (kbd "C-w") 'close-current-buffer)
+;;(define-key my-key-map (kbd "C-w") 'close-current-buffer)
 (define-key my-key-map (kbd "C-s") 'save-buffer)
 (define-key my-key-map (kbd "C-S-s") 'write-file)
 (define-key my-key-map (kbd "C-p") 'print-buffer-confirm)
@@ -127,11 +135,8 @@
 
 (define-key my-key-map (kbd "<delete>") 'delete-char) ; the Del key for forward delete. Needed if C-d is set to nil.
 
-(define-key my-key-map (kbd "C-<prior>") 'previous-user-buffer)
-(define-key my-key-map (kbd "C-<next>") 'next-user-buffer)
-
-(define-key my-key-map (kbd "C-S-<prior>") 'previous-emacs-buffer)
-(define-key my-key-map (kbd "C-S-<next>") 'next-emacs-buffer)
+(define-key my-key-map (kbd "C-<prior>") 'previous-buffer)
+(define-key my-key-map (kbd "C-<next>") 'next-buffer)
 
 (define-key my-key-map (kbd "M-S-<prior>") 'backward-page)
 (define-key my-key-map (kbd "M-S-<next>") 'forward-page)
@@ -153,9 +158,55 @@
 
 (cua-mode 1)   
 
-(define-key isearch-mode-map "\C-f" 'isearch-repeat-forward) ; repeat isearch forward
-(define-key isearch-mode-map "\C-F" 'isearch-repeat-backward) ; repeat isearch backward
+(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward) ; repeat isearch forward
+(define-key isearch-mode-map (kbd "C-S-f") 'isearch-repeat-backward) ; repeat isearch backward
 (define-key isearch-mode-map (kbd "C-v") 'isearch-yank-kill) ; normal past in minibuffer
+
+(defun forward-word-in-line (n)
+  "Like `forward-word', but restricted to moving within a single line."
+  (interactive "p")
+  (save-restriction
+    (narrow-to-region (line-beginning-position) (line-end-position))
+    (forward-word n)))
+
+(defun backward-word-in-line (n)
+  "Like `backward-word', but restricted to moving within a single line."
+  (interactive "p")
+  (forward-word-in-line (if (zerop n) -1 (- n))))
+
+(defun forward-word-or-line ()
+  "Move forward one word, like `forward-word' without argument,
+but if point is at end of line, just move to the beginning of the
+next line instead."
+  (interactive "^")
+  (let ((bound (line-end-position)))
+    (forward-word)
+    (if (> (point) bound)
+        (goto-char (1+ bound)))))
+
+
+(defun backward-word-or-line ()
+  "Move backward one word, like `backward-word' without argument,
+but if point is at beginning of line, just move to the end of the
+previous line instead."
+  (interactive "^")
+  (let ((bound (line-beginning-position)))
+    (backward-word)
+    (if (< (point) bound)
+        (goto-char (1- bound)))))
+
+
+(global-unset-key (kbd "C-<right>"))
+(global-unset-key (kbd "C-<left>"))
+(global-set-key (kbd "C-<right>") 'forward-word-or-line)
+(global-set-key (kbd "C-<left>") 'backward-word-or-line)
+;;(global-set-key (kbd "C-<right>") 'forward-word)
+;;(global-set-key (kbd "C-<left>") 'backward-word)
+;;(global-set-key (kbd "C-<right>") 'forward-block)
+;;(global-set-key (kbd "C-<left>") 'backward-block)
+;; Selection doesn't work with this:
+;; (global-set-key (kbd "C-<left>") (lambda () (interactive)
+;;                               (forward-same-syntax -1)))
 
 (defun reload-keybindings ()
   (interactive)
@@ -168,7 +219,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-(toggle-truncate-lines)
+(setq-default truncate-lines t)
 
 (global-set-key (kbd "<mouse-3>") 'copy-region-as-kill)
 
@@ -251,6 +302,88 @@
 (global-set-key (kbd "<s-tab>") 'shift-right)
 (global-set-key (kbd "<s-iso-lefttab>") 'shift-left)
 
+;; use underscore as part of the word for C++, Java, and Python
+(defun fix-syntax-tables()
+  (interactive)
+  (modify-syntax-entry ?_ "w" c++-mode-syntax-table)
+  (modify-syntax-entry ?_ "w" java-mode-syntax-table)
+  (modify-syntax-entry ?_ "w" python-mode-syntax-table))
+
+ (add-hook 'c++-mode-hook (lambda () (modify-syntax-entry ?_ "w" c++-mode-syntax-table)))
+ (add-hook 'java-mode-hook (lambda ()  (modify-syntax-entry ?_ "w" java-mode-syntax-table)))
+(add-hook 'pythod-mode-hook (lambda () (modify-syntax-entry ?_ "w" python-mode-syntax-table)))
+
+;; Select current word (not copying yet)
+(defun mark-and-copy-current-word (&optional arg allow-extend)
+    "Put point at beginning of current word, set mark at end."
+    (interactive "p\np")
+    (setq arg (if arg arg 1))
+    (if (and allow-extend
+             (or (and (eq last-command this-command) (mark t))
+                 (region-active-p)))
+        (set-mark
+         (save-excursion
+           (when (< (mark) (point))
+             (setq arg (- arg)))
+           (goto-char (mark))
+           (forward-word arg)
+           (point)))
+      (let ((wbounds (bounds-of-thing-at-point 'word)))
+        (unless (consp wbounds)
+          (error "No word at point"))
+        (if (>= arg 0)
+            (goto-char (car wbounds))
+          (goto-char (cdr wbounds)))
+        (push-mark (save-excursion
+                     (forward-word arg)
+                     (point)))
+        (activate-mark)
+;;        (copy-region-as-kill (region-beginning) (region-end))
+;;        (activate-mark)
+        )))
+
+(setq cua-keep-region-after-copy t)
+(global-set-key (kbd "C-w") 'mark-and-copy-current-word)
+
+;; Shell-pop
+(require 'shell-pop)
+
+
+;; ansi-term
+;; (defun paste1 ()
+;;    (interactive)
+;;   (if (eq major-mode 'term-mode)
+;;       (message "term")
+;;       (message "not term")
+;;       )
+;;   )
+;; (global-set-key (kbd "C-0") 'paste1)
+(add-hook 'term-mode-hook
+          (function
+           (lambda ()
+             (define-key term-raw-map (kbd "C-y")
+               (lambda ()
+                 (interactive)
+                 (term-send-raw-string (current-kill 0))))
+             (define-key term-raw-map (kbd "C-v")
+               (lambda ()
+                 (interactive)
+                 (term-send-raw-string (current-kill 0))))
+             (define-key term-raw-map (kbd "M-x") 'nil)
+             )))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ ;;'(shell-pop-default-directory "/Users/kyagi/git")
+ '(shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell)))))
+ '(shell-pop-term-shell "/bin/bash")
+ '(shell-pop-universal-key "C-t")
+ '(shell-pop-window-height 30)
+ '(shell-pop-full-span t)
+ '(shell-pop-window-position "bottom"))
 
 ;; Google stuff
 
@@ -276,5 +409,14 @@ that uses 'font-lock-warning-face'."
 (font-lock-add-keywords 'js-mode (font-lock-width-keyword 80))
 (font-lock-add-keywords 'python-mode (font-lock-width-keyword 80))
 
+;; Build and test
 (global-set-key (kbd "M-g b") 'google3-build)
+(global-set-key (kbd "C-x g b") 'google3-build)
 (global-set-key (kbd "M-g t") 'google3-test)
+(global-set-key (kbd "C-x g t") 'google3-test)
+
+;; gtags
+(global-set-key (kbd "<f3>") 'gtags-first-tag)
+(global-set-key (kbd "C-<f3>") 'gtags-show-tag-locations)
+(global-set-key (kbd "C-M-g") 'gtags-find-tag)
+(global-set-key (kbd "s-SPC") 'gtags-complete-tag)
