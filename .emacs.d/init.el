@@ -1,6 +1,5 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
-(add-to-list 'load-path "~/.emacs.d/cc-mode")
 
 (setq make-backup-files         nil) ; Don't want any backup files
 (setq auto-save-list-file-name  nil) ; Don't want any .saves files
@@ -156,7 +155,16 @@
 (my-keybindings (current-global-map))
 (message "init.el reloaded")
 
-(cua-mode 1)   
+(cua-mode 1)
+
+;; (global-set-key (kbd "C-S-v") '(lambda ()
+;;     (interactive) (popup-menu 'yank-menu)))
+
+(global-set-key (kbd "C-S-v")
+                '(lambda ()
+                   (interactive)
+                   (if (not (eq last-command 'yank))
+                       (yank) (yank-pop))))
 
 (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward) ; repeat isearch forward
 (define-key isearch-mode-map (kbd "C-S-f") 'isearch-repeat-backward) ; repeat isearch backward
@@ -385,6 +393,14 @@ previous line instead."
  '(shell-pop-full-span t)
  '(shell-pop-window-position "bottom"))
 
+;; TabBar - not useful
+;; (require 'tabbar)
+;; (tabbar-mode)
+
+(require 'goto-chg)
+(global-set-key (kbd "C-`") 'goto-last-change)
+;;(global-set-key [(control ?,)] 'goto-last-change-reverse)
+
 ;; Google stuff
 
 (load-file "/google/src/head/depot/eng/elisp/google.el")
@@ -397,6 +413,7 @@ previous line instead."
 (require 'google3)                  ;; magically set paths for compiling google3 code
 (require 'google3-build)            ;; support for blaze builds
 (require 'csearch)                  ;; Search the whole Google code base.
+(require 'google-go)
 
 (defun font-lock-width-keyword (width)
   "Return a font-lock style keyword for a string beyond width WIDTH
@@ -420,3 +437,11 @@ that uses 'font-lock-warning-face'."
 (global-set-key (kbd "C-<f3>") 'gtags-show-tag-locations)
 (global-set-key (kbd "C-M-g") 'gtags-find-tag)
 (global-set-key (kbd "s-SPC") 'gtags-complete-tag)
+
+;; Autocomplte and syntax highlight
+(require 'gcomplete)
+(gcomplete-setup-flymake)
+;; auto-complete if you want it as well
+(gcomplete-setup-for-auto-complete)
+
+(require 'aqua-mode)

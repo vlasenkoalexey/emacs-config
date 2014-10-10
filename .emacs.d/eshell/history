@@ -1,0 +1,8 @@
+gofmt -w measure_compare_test.go
+gofmt -w measure_compare.go
+exit
+cd ..
+cd ..
+cd ..
+cd server/creative//
+cp adconnect-visitor.h ${tmp}
